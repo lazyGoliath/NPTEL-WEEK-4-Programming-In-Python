@@ -22,11 +22,18 @@ def mystery(l):
 
 ### [55, 82, 65, 19, 14, 22]
 
-<!-- Feedback:
-At statement 7, w[1] is the string "mimsy", which cannot be updated in place.
+Yes, the answer is correct.
+
+Score: 2.5
+
+Feedback:
+Elements are moved from the beginning of the list to the end, so the list gets reversed.
 
 Accepted Answers:
-(Type: Numeric) 7 -->
+(Type: Regex Match)
+
+[ ]*[[ ]*55[ ]*,[ ]*82[ ]*,[ ]*65[ ]*,[ ]*19[ ]*,[ ]*14[ ]*,[ ]*22[ ]*][ ]*
+
 
 ## What is the value of pairs after the following assignment?
 
@@ -36,12 +43,17 @@ pairs = [ (x,y) for x in range(4,1,-1) for y in range(5,1,-1) if (x+y)%3 == 0 ]
 
 ### [(4, 5), (4, 2), (3, 3), (2, 4)]
 
-<!-- Feedback:
-a[0] == 65, b[3] == 73, c[3] == 73, d[1] == 95
-b and c refer to the same list, while a and d are two independent slices. The update to d[1] does not affect any other list. The update to b[2] does not affect a or d. The update to c[3] is also reflected in b[3].
+Yes, the answer is correct.
+
+Score: 2.5
+
+Feedback:
+All pairs (i,j) with i ∈ {4,3,2}, j ∈ {5,4.3,2} such that i + j is a multiple of 3,
 
 Accepted Answers:
-a[0] == 65, b[3] == 73, c[3] == 73, d[1] == 95 -->
+(Type: Regex Match)
+
+[ ]*[[ ]*\([ ]*4[ ]*,[ ]*5[ ]*\)[ ]*,[ ]*\([ ]*4[ ]*,[ ]*2[ ]*\)[ ]*,[ ]*\([ ]*3[ ]*,[ ]*3[ ]*\)[ ]*,[ ]*\([ ]*2[ ]*,[ ]*4[ ]*\)[ ]*][ ]*
 
 ## Consider the following dictionary.
 
@@ -55,12 +67,17 @@ wickets = {"Tests":{"Bumrah":[3,5,2,3],"Shami":[4,4,1,0],"Ashwin":[2,1,7,4]},"OD
  - wickets["ODI"]["Ashwin"].extend([4,4])
  - wickets["ODI"]["Ashwin"] = [4,4] (correct)
  - wickets["ODI"]["Ashwin"] = wickets["ODI"]["Ashwin"] + [4,4]
+   
+Yes, the answer is correct.
 
-<!-- Feedback:
-At statement 7, w[1] is the string "mimsy", which cannot be updated in place.
+Score: 2.5
+
+Feedback:
+Direct assignment to a new key adds a value. All other updates result in KeyError.
 
 Accepted Answers:
-(Type: Numeric) 7 -->
+
+wickets["ODI"]["Ashwin"] = [4,4]
 
 ## Assume that hundreds has been initialized as an empty dictionary:
 
@@ -71,12 +88,17 @@ hundreds = {}
 ## Which of the following generates an error?
 
  - hundreds["Tendulkar, international"] = 100
- - hundreds["Tendulkar"] = {"international":100} (correct)
+ - hundreds["Tendulkar"] = {"international":100} 
  - hundreds[("Tendulkar","international")] = 100
- - hundreds[["Tendulkar","international"]] = 100
+ - hundreds[["Tendulkar","international"]] = 100 (correct)
 
-<!-- Feedback:
-At statement 7, w[1] is the string "mimsy", which cannot be updated in place.
+Yes, the answer is correct.
+
+Score: 2.5
+
+Feedback:
+Dictionary keys must be immutable values.
 
 Accepted Answers:
-(Type: Numeric) 7 -->
+
+hundreds[["Tendulkar","international"]] = 100
